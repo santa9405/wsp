@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="loginMember">
+SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_PHONE,
+       MEMBER_EMAIL, MEMBER_ADDR, MEMBER_INTEREST, MEMBER_GRADE
+FROM MEMBER
+WHERE MEMBER_ID = ? 
+AND MEMBER_PWD = ?
+AND MEMBER_STATUS = 'Y'
+</entry>
+
+
+<entry key="signUp">
+INSERT INTO MEMBER(MEMBER_NO, MEMBER_ID, MEMBER_PWD, MEMBER_NM, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_ADDR, MEMBER_INTEREST)
+VALUES(SEQ_MNO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)
+</entry>
+
+<!--
+<entry key="signUp">
+INSERT INTO MEMBER
+VALUES(SEQ_MNO.NEXTVAL, 
+			?, ?, ?, ?, ?, ?, ?,
+			DEFAULT, DEFAULT, DEFAULT)
+</entry>
+-->
+
+<entry key="idDupCheck">
+SELECT COUNT(*)
+FROM MEMBER
+WHERE MEMBER_ID = ?
+AND MEMBER_STATUS = 'Y'
+</entry>
+
+<entry key="updateMember">
+UPDATE MEMBER
+SET MEMBER_PHONE = ?, MEMBER_EMAIL = ?, MEMBER_ADDR = ?, MEMBER_INTEREST = ?
+WHERE MEMBER_NO = ?
+</entry>
+
+<entry key="checkCurrentPwd">
+SELECT COUNT(*) FROM MEMBER
+WHERE MEMBER_NO = ?
+AND MEMBER_PWD = ?
+</entry>
+
+<entry key="updatePwd">
+UPDATE MEMBER
+SET MEMBER_PWD = ?
+WHERE MEMBER_NO = ?
+</entry>
+
+<entry key="updateStatus">
+UPDATE MEMBER
+SET MEMBER_STATUS = 'N'
+WHERE MEMBER_NO = ?
+</entry>
+
+</properties>

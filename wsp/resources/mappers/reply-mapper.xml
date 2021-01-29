@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : mapper의 이름(별칭) -->
+<mapper namespace="replyMapper">
+
+	<resultMap type="Reply" id="reply_rm">
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="replyCreateDate" column="REPLY_CREATE_DT"/>
+		<result property="memberId" column="MEMBER_ID"/>
+	</resultMap>
+
+	<select id="selectList" parameterType="_int" resultMap="reply_rm">
+		SELECT REPLY_NO, REPLY_CONTENT, REPLY_CREATE_DT, MEMBER_ID
+		FROM V_REPLY
+		WHERE REPLY_STATUS = 'Y'
+		AND PARENT_BOARD_NO = #{parentBoardNo}
+	</select>
+
+	<insert id="insertReply" parameterType="map">
+		INSERT INTO REPLY VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, DEFAULT, DEFAULT, #{replyWriter}, #{parentBoardNo})
+	</insert>
+	 
+	 
+	<update id="updateReply" parameterType="map">
+		UPDATE REPLY SET
+		REPLY_CONTENT = #{replyContent}
+		WHERE REPLY_NO = #{replyNo}
+	</update>
+	
+	<update id="updateReplyStatus" parameterType="_int">
+		UPDATE REPLY SET
+		REPLY_STATUS = 'N'
+		WHERE REPLY_NO = #{replyNo}
+	</update>
+  
+</mapper>

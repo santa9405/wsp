@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- configuration : 마이바티스 설정과 관련된 세팅 내용을 선언하는 태그(영역) 
+	   configuration 내부에 작성되는 태그들의 순서가 중요하다!
+-->
+<configuration>
+
+<!-- mybatis 기본 세팅 -->
+<settings>
+
+	<!-- 마이바티스 null 처리 세팅 
+	          마이바티스는 매핑되는 컬럼에 null 값이 있을 경우 오류를 발생 시킴.
+	          그래서 값이 null일 때 처리 방법을 지정해둠 
+	     value 지정 시 NULL은 반드시 대문자로 작성한다! -->
+	
+	<setting name="jdbcTypeForNull" value="NULL"/>
+
+</settings>
+
+<!-- VO 별칭 지정 -->
+<typeAliases>
+	<typeAlias type="com.kh.wsp.board.model.vo.Board" alias="Board"/>
+	<typeAlias type="com.kh.wsp.board.model.vo.Attachment" alias="Attachment"/>
+	<typeAlias type="com.kh.wsp.reply.model.vo.Reply" alias="Reply"/>
+	<typeAlias type="com.kh.wsp.member.model.vo.Member" alias="Member"/>
+</typeAliases>
+
+
+
+
+  <!-- environments : DB 연결 설정 정보를 작성하는 태그 -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="server"/>
+        <property name="password" value="server"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!-- DB에서 수행될 SQL 구문을 담은 mapper 파일을 등록하는 태그 -->
+  <mappers>
+    <!-- <mapper resource="org/mybatis/example/BlogMapper.xml"/> -->
+    <mapper resource="/mappers/board-mapper.xml"/>
+    <mapper resource="/mappers/search-mapper.xml"/>
+    <mapper resource="/mappers/reply-mapper.xml"/>
+    <mapper resource="/mappers/member-mapper.xml"/>
+  </mappers>
+  
+</configuration>

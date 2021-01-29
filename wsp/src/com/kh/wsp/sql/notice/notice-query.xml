@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="selectList">
+SELECT * FROM V_NOTICE_LIST WHERE NOTICE_FL = 'Y'
+</entry>
+
+<entry key="selectNotice">
+SELECT NOTICE_TITLE, NOTICE_CONTENT, MEMBER_ID, READ_COUNT, NOTICE_CREATE_DT
+FROM NOTICE
+JOIN MEMBER ON(NOTICE_WRITER = MEMBER_NO)
+WHERE NOTICE_NO = ?
+AND NOTICE_FL = 'Y'
+</entry>
+
+<entry key="increaseReadCount">
+UPDATE NOTICE SET
+READ_COUNT = READ_COUNT + 1
+WHERE NOTICE_NO = ?
+</entry>
+
+<!-- 다음 번호 얻어오기 -->
+<entry key="selectNextNo">
+SELECT SEQ_NNO.NEXTVAL FROM DUAL
+</entry>
+
+<!-- 공지사항 등록 -->
+<entry key="insertNotice">
+INSERT INTO NOTICE(NOTICE_NO, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_WRITER)
+VALUES(?, ?, ?, ?)
+</entry>
+
+<!-- 공지사항 수정 -->
+<entry key="updateNotice">
+UPDATE NOTICE SET
+NOTICE_TITLE = ?,
+NOTICE_CONTENT = ?
+WHERE NOTICE_NO = ?
+</entry>
+
+<!-- 공지사항 삭제  -->
+<entry key="updateNoticeFl">
+UPDATE NOTICE SET
+NOTICE_FL = 'N'
+WHERE NOTICE_NO = ?
+</entry>
+
+</properties>
