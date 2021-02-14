@@ -31,7 +31,5 @@ public class MybatisTemplate {
 		}
 		
 		return session;
-		
 	}
-	
 }

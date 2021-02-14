@@ -39,11 +39,6 @@
 		<result property="parentBoardNo" column="PARENT_BOARD_NO"/>
 	</resultMap>
 	
-	
-	
-	
-
-
   <!-- 전체 게시글 수 조회(select / 조회 결과 : 단일 행 / 결과 타입 : 숫자(int) -->
   <!-- resultType : resultSet 결과를 매핑해서 반환되는 타입을 지정
   					타입 지정 시 별칭 또는 전체 클래스명(패키지명 + 클래스명)을 작성해야 함. -->
@@ -174,18 +169,5 @@
 	) A
    
   </insert>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 </mapper>

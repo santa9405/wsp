@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  <!-- Web.xml (배포 서술자) : 프로젝트 배포와 관련된 설정을 하는 파일 -->
+  
+  <!-- display-name : 배포 시 프로젝트 시작 이름
+  		http://localhost:8080/ServletProject
+  								(display-name)
+   -->
+  <display-name>ServletProject</display-name>
+  
+  <!-- welcome-file-list 
+        : 배포 시작 주소로 요청이 오는 경우 연결할 파일 목록을 작성하는 부분 
+          ex) http://localhost:8080/ServletProject
+  -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Servlet 생성 및 url 연결 -->
+  <servlet>
+  	<servlet-name>Test1</servlet-name>
+  	<servlet-class>
+  		com.kh.servlet.controller.TestServlet1
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test1</servlet-name>
+  	<url-pattern>/testServlet1.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Test2</servlet-name>
+  	<servlet-class>
+  		com.kh.servlet.controller.TestServlet2
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test2</servlet-name>
+  	<url-pattern>/testServlet2.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Test3</servlet-name>
+  	<servlet-class>
+  		com.kh.servlet.controller.TestServlet3
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test3</servlet-name>
+  	<url-pattern>/testServlet3.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Test4</servlet-name>
+  	<servlet-class>
+  		com.kh.servlet.controller.TestServlet4
+  	</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test4</servlet-name>
+  	<url-pattern>/testServlet4.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>
