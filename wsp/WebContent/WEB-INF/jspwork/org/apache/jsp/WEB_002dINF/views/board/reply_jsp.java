@@ -265,7 +265,7 @@ public final class reply_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("               var replyBtnArea = $(\"<div>\").addClass(\"replyBtnArea\");\r\n");
       out.write("               \r\n");
       out.write("               // ** 추가되는 댓글에 onclick 이벤트를 부여하여 버튼 클릭 시 수정, 삭제를 수행할 수 있는 함수를 이벤트 핸들러로 추가함. \r\n");
-      out.write("               var showUpdate = $(\"<button>\").addClass(\"btn btn-primary btn-sm ml-1\").text(\"수정\").attr(\"onclick\", \"showUpdateReply(\"+item.replyNo+\", this)\");\r\n");
+      out.write("               var showUpdate = $(\"<button>\").addClass(\"btn btn-primary btn-sm ml-1\").text(\"수정\").attr(\"on\", \"showUpdateReply(\"+item.replyNo+\", this)\");\r\n");
       out.write("               var deleteReply = $(\"<button>\").addClass(\"btn btn-primary btn-sm ml-1\").text(\"삭제\").attr(\"onclick\", \"deleteReply(\"+item.replyNo+\")\");\r\n");
       out.write("               \r\n");
       out.write("               replyBtnArea.append(showUpdate).append(deleteReply);\r\n");

@@ -165,7 +165,7 @@
 		 </c:when>
          
          
-         <%-- 페이징 처리 주소를 쉽게 사용할 수 있도록 미리 변수에 저장 --%>
+         	<%-- 페이징 처리 주소를 쉽게 사용할 수 있도록 미리 변수에 저장 --%>
             <%-- 검색 내용이 파라미터에 존재할 때 == 검색을 통해 만들어진 페이지인가? --%>
             <c:when test="${!empty param.sk && !empty param.sv}">
                <c:url var="pageUrl" value="/search.do"/>
@@ -182,8 +182,8 @@
          
          <!-- 화살표에 들어갈 주소를 변수로 생성 -->
          <%-- 
-            검색을 안했을 때 : /board/list.do?cp=1
-            검색을 했을 때 :  /search.do?cp=1&sk=title&sv=49
+		            검색을 안했을 때 : /board/list.do?cp=1
+		            검색을 했을 때 :  /search.do?cp=1&sk=title&sv=49
           --%>
          
          <c:set var="firstPage" value="${pageUrl}?cp=1${searchStr}"/>
